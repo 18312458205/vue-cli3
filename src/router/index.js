@@ -36,21 +36,21 @@ const router = new Router({
 router.beforeEach((to, from, next) => {
   console.log(to)
   const data = JSON.parse(localStorage.getItem('data'))
-  if (to.meta.requireAuth) {
-    if (data && data.isLogin) {
+  if (to.meta.requireAuth) { // 需要登录的路由
+    if (data && data.isLogin) { // 已经登录，直接进入下一管道
       next()
     } else {
       next({
-        path: '/login'
+        path: '/' // 未登录，直接返回登录
       })
     }
-  } else {
-    if (data && data.isLogin) {
+  } else { // 不需要登录的路由
+    if (data && data.isLogin) { // 已经登录，直接进入home
       next({
         path: '/home'
       })
     } else {
-      next()
+      next() // 未登录，直接进入下一管道
     }
   }
 })

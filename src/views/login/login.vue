@@ -1,5 +1,8 @@
 <template>
-    <i-form ref="formInline" :model="formInline" :rules="ruleInline" inline>
+ <div class="login-box">
+<Card style="width:320px">
+  <h2 :style="{textAlign: 'center'}">组件库</h2>
+    <i-form ref="formInline" :model="formInline" :rules="ruleInline">
         <FormItem prop="user">
             <i-input type="text" v-model="formInline.user" placeholder="Username">
                 <Icon type="ios-person-outline" slot="prepend"></Icon>
@@ -11,14 +14,17 @@
             </i-input>
         </FormItem>
         <FormItem>
-            <Button type="primary" @click="handleSubmit('formInline')">登录</Button>
+            <Button :loading="loading" type="primary" @click="handleSubmit('formInline')" long>登录</Button>
         </FormItem>
     </i-form>
+</Card>
+</div>
 </template>
 <script>
 export default {
   data () {
     return {
+      loading: false,
       formInline: {
         user: '',
         password: ''
@@ -37,14 +43,12 @@ export default {
     handleSubmit (name) {
       this.$refs[name].validate(async (valid) => {
         if (valid) {
-          if (this.formInline.user === 'wangyajing' && this.formInline.password === '123456') {
+          this.loading = true
+          setTimeout(async () => {
             this.$Message.success('登录成功!')
             await this.loginIn()
             this.$router.push('/home')
-          } else {
-            this.$Message.error('登录失败!')
-          }
-        } else {
+          }, 1000)
         }
       })
     },
@@ -55,3 +59,12 @@ export default {
   }
 }
 </script>
+<style lang="less" scoped>
+.login-box {
+  width: 100%;
+  height: calc(100vh);
+  display: flex;
+   justify-content: center;
+   align-items: center;
+}
+</style>
