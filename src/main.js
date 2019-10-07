@@ -11,7 +11,7 @@ import './styles/index.less'
 Vue.config.productionTip = false
 
 Vue.use(iView)
-console.log('444')
+
 new Vue({
   router,
   store,

@@ -2,6 +2,10 @@
   <div>
      <Button @click="loginIn">登录</Button>
      <Button @click="loginOut">退出</Button>
+     <img src="@assets/logo.png" alt="">
+    <img :src="require('@assets/logo.png')" alt="">
+     <img src="/img/icons/favicon-16x16.png" alt="">
+     <Button @click="jump">跳转</Button>
   </div>
 </template>
 
@@ -38,6 +42,9 @@ export default {
           duration: 3
         })
       }
+    },
+    jump () {
+      this.$router.push('/')
     }
   }
 }

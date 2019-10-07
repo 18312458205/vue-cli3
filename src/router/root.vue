@@ -1,13 +1,12 @@
 <template>
-  <div id="app">
-    <router-view/>
-  </div>
+      <router-view/>
+      <!-- <div></div> -->
 </template>
 <script>
 
 export default {
   created () {
-    console.log('原根路径')
+    console.log('新增跟路径')
   }
 }
 </script>
