@@ -13,7 +13,9 @@
 
 export default {
   components: {},
-  created () {},
+  created () {
+    console.log('111')
+  },
   mounted () {
     window.removeEventListener('storage', this.showStorage)
     window.addEventListener('storage', this.showStorage)

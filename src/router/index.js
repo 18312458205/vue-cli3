@@ -2,28 +2,12 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import home from '@router/modules/home/index'
 import login from '@router/modules/login/index'
-// import root from './root.vue'
-// import err from './err.vue'
 
 Vue.use(Router)
 
 const routes = [
-  // {
-  //   path: '/',
-  //   name: '/',
-  //   component: root
-  // },
-  {
-    path: '/',
-    name: '/',
-    redirect: '/login'
-  },
-  home,
+  ...home,
   login
-  // {
-  //   path: '*', // 用于匹配404页面
-  //   redirect: '/404'
-  // },
 ]
 
 console.log(process.env)
@@ -41,13 +25,13 @@ router.beforeEach((to, from, next) => {
       next()
     } else {
       next({
-        path: '/' // 未登录，直接返回登录
+        path: '/login' // 未登录，直接返回登录
       })
     }
   } else { // 不需要登录的路由
     if (data && data.isLogin) { // 已经登录，直接进入home
       next({
-        path: '/home'
+        path: '/'
       })
     } else {
       next() // 未登录，直接进入下一管道
