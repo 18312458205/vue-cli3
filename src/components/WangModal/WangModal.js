@@ -5,7 +5,6 @@ WangModal.newInstance = properties => {
   const _props = properties || {}
   const Instance = new Vue({
     data: Object.assign({}, _props, {
-      visible: false,
       width: 416,
       title: '',
       body: '',
@@ -16,7 +15,6 @@ WangModal.newInstance = properties => {
       showCancel: false,
       loading: false,
       buttonLoading: false,
-      scrollable: false,
       closable: false,
       closing: false // 关闭有动画，期间使用此属性避免重复点击
     }),
@@ -30,15 +28,7 @@ WangModal.newInstance = properties => {
           buttonLoading: this.buttonLoading,
           onOk: this.ok,
           onCancel: this.cancel
-        }),
-        domProps: {
-          value: this.visible
-        },
-        on: {
-          input: (status) => {
-            this.visible = status
-          }
-        }
+        })
       }, [])
     },
     methods: {
@@ -77,7 +67,6 @@ WangModal.newInstance = properties => {
   const component = Instance.$mount()
   document.body.appendChild(component.$el)
   const modal = Instance.$children[0]
-  console.log(Instance)
 
   return {
     show (props) {

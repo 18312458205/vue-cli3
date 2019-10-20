@@ -5,22 +5,19 @@
         :title="title"
         :ok-text='okText'
         :cancel-text='cancelText'
-        @on-cancel="cancel"
+        @on-cancel="onCancel"
         >
         <p slot="content">内容</p>
+        {{visible}}
         <div slot="footer">
-            <Button  @click="cancel">{{cancelText}}</Button>
-            <Button type="primary" :loading="buttonLoading"   @click="ok">{{okText}}</Button>
+            <Button  @click="onCancel">{{cancelText}}</Button>
+            <Button type="primary" :loading="buttonLoading"   @click="onOk">{{okText}}</Button>
         </div>
     </Modal>
 </template>
 <script>
 export default {
   props: {
-    value: {
-      type: Boolean,
-      default: false
-    },
     width: {
       type: [Number, String],
       default: 520
@@ -52,26 +49,9 @@ export default {
   },
   data () {
     return {
-      visible: this.value,
-      okLoading: false
+      visible: false
     }
   },
-  watch: {
-    value (val) {
-      this.visible = val
-    }
-  },
-  computed: {
-  },
-  created () {
-  },
-  methods: {
-    cancel () {
-      this.onCancel()
-    },
-    ok () {
-      this.onOk()
-    }
-  }
+  methods: {}
 }
 </script>

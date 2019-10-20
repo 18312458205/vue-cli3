@@ -36,8 +36,8 @@ export default {
         cancelText: '取消',
         loading: true,
         onOk: () => {
-          console.log('ok')
           setTimeout(() => {
+            console.log('ok')
             WangModal.remove()
           }, 3000)
         },
