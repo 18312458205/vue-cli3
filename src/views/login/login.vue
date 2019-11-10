@@ -1,7 +1,7 @@
 <template>
  <div class="login-box">
 <Card style="width:320px">
-  <h2 :style="{textAlign: 'center'}">组件库</h2>
+  <h2 :style="{textAlign: 'center'}">基于iview组件库</h2>
     <i-form ref="formInline" :model="formInline" :rules="ruleInline">
         <FormItem prop="user">
             <i-input type="text" v-model="formInline.user" placeholder="Username">
@@ -13,6 +13,7 @@
                 <Icon type="ios-lock-outline" slot="prepend"></Icon>
             </i-input>
         </FormItem>
+        <div :style="{marginBottom: '15px'}">请输入任意姓名和密码</div>
         <FormItem>
             <Button :loading="loading" type="primary" @click="handleSubmit('formInline')" long>登录</Button>
         </FormItem>

@@ -19,6 +19,14 @@ WangModal.newInstance = properties => {
       closing: false // 关闭有动画，期间使用此属性避免重复点击
     }),
     render (h) {
+      let bodyrender = h('div', [
+        h('a', {
+          style: 'textDecoration: underline',
+          domProps: {
+            innerHTML: this.body
+          }
+        })
+      ])
       return h(WangModal, {
         props: Object.assign({}, _props, {
           width: this.width,
@@ -29,7 +37,7 @@ WangModal.newInstance = properties => {
           onOk: this.ok,
           onCancel: this.cancel
         })
-      }, [])
+      }, [bodyrender])
     },
     methods: {
       cancel () {
@@ -81,6 +89,10 @@ WangModal.newInstance = properties => {
 
       if ('title' in props) {
         modal.$parent.title = props.title
+      }
+
+      if ('body' in props) {
+        modal.$parent.body = props.body
       }
 
       if ('okText' in props) {

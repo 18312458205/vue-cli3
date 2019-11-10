@@ -7,8 +7,7 @@
         :cancel-text='cancelText'
         @on-cancel="onCancel"
         >
-        <p slot="content">内容</p>
-        {{visible}}
+        <slot></slot>
         <div slot="footer">
             <Button  @click="onCancel">{{cancelText}}</Button>
             <Button type="primary" :loading="buttonLoading"   @click="onOk">{{okText}}</Button>
