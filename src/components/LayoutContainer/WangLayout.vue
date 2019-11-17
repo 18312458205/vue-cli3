@@ -62,9 +62,16 @@ export default {
 </script>
 <style lang="less" scoped>
 .layout-container {
-  min-height: calc(100vh);
   /deep/.ivu-poptip-popper {
     min-width: 60px;
+  }
+  /deep/.ivu-layout-content {
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 20px;
+  }
+  /deep/.ivu-layout-has-sider{
+    min-height: calc(100vh - 64px);
   }
 }
 </style>

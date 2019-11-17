@@ -51,7 +51,7 @@
             <Button @click="handleReset('formValidate')" style="margin-left: 8px">Reset</Button>
         </FormItem>
     </Form>
-    <img src="@assets/img1.png">
+    <img src="@assets/img2.png">
     <div>ps:vue引入图片的正确方式</div>
     <a :href="src" target="_blank">
       https://segmentfault.com/a/1190000019495695?utm_source=tag-newest
@@ -122,7 +122,7 @@ export default {
           console.log(this.formValidate)
           this.$nextTick(() => {
             const { top } = getOffset(document.querySelector('.ivu-form-item-error'))
-            scrollTop(window, window.pageYOffset, top - 64)
+            scrollTop(window, window.pageYOffset, top - 84)
           })
         }
       })
