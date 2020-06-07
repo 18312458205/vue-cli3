@@ -18,6 +18,10 @@ const list = [
   {
     title: 'dispatch',
     path: '/components/dispatch'
+  },
+  {
+    title: 'demo1',
+    path: '/components/demo1'
   }
 ]
 
